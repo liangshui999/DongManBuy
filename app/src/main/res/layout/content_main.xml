@@ -1,19 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.asus_cp.dongmanbuy.MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+    <!--标题栏的布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/img_btn_login"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="5dp"
+            android:background="@mipmap/login"/>
+        <android.support.v7.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            >
+        </android.support.v7.widget.SearchView>
+        <ImageButton
+            android:id="@+id/img_btn_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/message"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+
+    <!--中间的内容区域-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+
+        <!--消息和扫一扫所在的布局-->
+        <LinearLayout
+            android:id="@+id/ll_message_and_sao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignRight="@id/viewpager_main"
+            android:layout_alignTop="@id/viewpager_main"
+            android:visibility="gone">
+            <LinearLayout
+                android:id="@+id/ll_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/message"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/message"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_sao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/saoyisao"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/sao"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--底部的标签所在的布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_home"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/home_normal"/>
+            <TextView
+                android:id="@+id/text_home"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_category"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/category_normal"/>
+            <TextView
+                android:id="@+id/text_category"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_find"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/find_normal"/>
+            <TextView
+                android:id="@+id/text_find"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/find"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_shop_street"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_shop_street"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/shopstreet_normal"/>
+            <TextView
+                android:id="@+id/text_shop_street"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shop_street"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_shopping_car"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_shopping_car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/shoppingcar_normal"/>
+            <TextView
+                android:id="@+id/text_shoppingz_car"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shopping_car"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
