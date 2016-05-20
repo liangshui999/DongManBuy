@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private SearchView searchView;
     private ImageButton loginButton;//登录按钮
     private ImageButton messageButton;//消息按钮
     private ViewPager viewPager;
@@ -105,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 初始化view
      */
     private void initView() {
+        searchView= (SearchView) findViewById(R.id.search_view);
+        searchView.setFocusable(false);//默认不聚焦
         loginButton= (ImageButton) findViewById(R.id.img_btn_login);
         messageButton= (ImageButton) findViewById(R.id.img_btn_message);
         messageButton.setOnClickListener(this);

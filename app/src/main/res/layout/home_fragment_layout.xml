@@ -1,71 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     >
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <!--广告条和指示点-->
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewpager_binner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </android.support.v4.view.ViewPager>
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager_binner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp">
+                </android.support.v4.view.ViewPager>
 
                 <LinearLayout
                     android:id="@+id/ll_point_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/viewpager_binner"
+                    android:layout_centerInParent="true"
                     android:orientation="horizontal">
                 </LinearLayout>
-            </LinearLayout>
+            </RelativeLayout>
 
 
             <!--我的钱包，我的订单8个图标-->
-            <GridView
-                android:id="@+id/grid_view_about_me"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="30dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            </GridView>
+                    <!--我的钱包-->
+                    <LinearLayout
+                        android:id="@+id/ll_my_wallet"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/mywallet"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/my_wallet"/>
+                    </LinearLayout>
+
+                    <!--我的订单-->
+                    <LinearLayout
+                        android:id="@+id/ll_my_order"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/myorder"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/my_order"/>
+                    </LinearLayout>
+
+                    <!--浏览记录-->
+                    <LinearLayout
+                        android:id="@+id/ll_browse_history"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/browshistory"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/browse_history"/>
+                    </LinearLayout>
+
+                    <!--收货地址-->
+                    <LinearLayout
+                        android:id="@+id/ll_ship_address"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/shipaddress"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/ship_address"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <!--限时特优-->
+                    <LinearLayout
+                        android:id="@+id/ll_xian_shi_te_you"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/xianshiteyou"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/xian_shi_te_you"/>
+                    </LinearLayout>
+
+                    <!--帮助中心-->
+                    <LinearLayout
+                        android:id="@+id/ll_help"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/help"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/help"/>
+                    </LinearLayout>
+
+                    <!--品牌页面-->
+                    <LinearLayout
+                        android:id="@+id/ll_brand_page"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/brandpage"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/brand_page"/>
+                    </LinearLayout>
+
+                    <!--优惠活动-->
+                    <LinearLayout
+                        android:id="@+id/ll_you_hui_huo_dong"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/about_me_size"
+                            android:layout_height="@dimen/about_me_size"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/youhuihuodong"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/you_hui_huo_dong"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <!--限时秒杀-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"/>
+                    android:text="@string/xian_shi_miao_sha"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/miao_sha_time"
+                    android:layout_marginLeft="10dp"/>
             </LinearLayout>
 
             <!--限时秒杀的列表展示-->
             <GridView
                 android:id="@+id/grid_view_xian_shi_miao_sha"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:columnWidth="90dp"
+                android:numColumns="auto_fit"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                >
 
             </GridView>
-
-
         </LinearLayout>
     </ScrollView>
-
 
 
 </LinearLayout>

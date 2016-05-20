@@ -9,4 +9,14 @@
     <string name="find">发现</string>
     <string name="shop_street">店铺街</string>
     <string name="shopping_car">购物车</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="my_order">我的订单</string>
+    <string name="browse_history">浏览记录</string>
+    <string name="ship_address">收货地址</string>
+    <string name="xian_shi_te_you">限时特优</string>
+    <string name="help">帮助中心</string>
+    <string name="brand_page">品牌页面</string>
+    <string name="you_hui_huo_dong">优惠活动</string>
+    <string name="xian_shi_miao_sha">限时秒杀</string>
+    <string name="miao_sha_time">1天1时1分1秒</string>
 </resources>
