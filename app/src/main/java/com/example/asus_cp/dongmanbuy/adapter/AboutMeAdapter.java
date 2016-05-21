@@ -14,7 +14,8 @@ import com.example.asus_cp.dongmanbuy.model.AboutMeModel;
 import java.util.List;
 
 /**
- * 首页上面，我的图片，我的订单等8个按钮对应的gridview的dapter
+ * 该类作废
+ * 首页上面，我的图片，我的订单等8个按钮对应的gridview的dapter,
  * Created by asus-cp on 2016-05-20.
  */
 public class AboutMeAdapter extends BaseAdapter {

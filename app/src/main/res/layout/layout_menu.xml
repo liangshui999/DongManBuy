@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <!--登录和头像部分-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/bottom_lable_color"
+        android:layout_margin="5dp">
+        <ImageView
+            android:id="@+id/img_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            android:src="@mipmap/login"/>
+        <TextView
+            android:id="@+id/text_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/email"
+            android:layout_margin="5dp"
+            android:textSize="@dimen/menu_font_size"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/text_email"
+            android:text="@string/zhou_mou_buy"
+            android:textSize="@dimen/menu_font_size"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:text="@string/my_page"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_order"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_wallet"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_shou_cang"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guan_zhu_dian_pu"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ship_address"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_password"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/menu_font_size"
+        android:layout_marginTop="@dimen/menu_distance"/>
+
+</LinearLayout>

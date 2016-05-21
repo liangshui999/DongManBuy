@@ -1,7 +1,6 @@
 package com.example.asus_cp.dongmanbuy.adapter;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,22 +11,21 @@ import android.widget.TextView;
 import com.android.volley.toolbox.ImageLoader;
 import com.example.asus_cp.dongmanbuy.R;
 import com.example.asus_cp.dongmanbuy.model.Good;
-import com.example.asus_cp.dongmanbuy.util.FormatHelper;
 import com.example.asus_cp.dongmanbuy.util.ImageLoadHelper;
 
 import java.util.List;
 
 /**
- * 限时秒杀的adapter
- * Created by asus-cp on 2016-05-20.
+ * 精品推荐gridview的adapter
+ * Created by asus-cp on 2016-05-21.
  */
-public class XianShiAdapter extends BaseAdapter{
+public class JingPinAdapter extends BaseAdapter{
     private Context context;
     private List<Good> goods;
     private LayoutInflater inflater;
     private ImageLoader imageLoader;
 
-    public XianShiAdapter(Context context, List<Good> goods) {
+    public JingPinAdapter(Context context, List<Good> goods) {
         this.context = context;
         this.goods = goods;
         inflater=LayoutInflater.from(context);
@@ -54,12 +52,11 @@ public class XianShiAdapter extends BaseAdapter{
         View v=convertView;
         ViewHolder viewHolder=null;
         if(v==null){
-            v=inflater.inflate(R.layout.xian_shi_miao_sha_item_layout,null);
+            v=inflater.inflate(R.layout.jing_pin_tui_jian_item_layout,null);
             viewHolder=new ViewHolder();
-            viewHolder.imageView= (ImageView) v.findViewById(R.id.img_xian_shi_pic);
-            viewHolder.nameTextView= (TextView) v.findViewById(R.id.text_xian_shi_name);
-            viewHolder.shopPriceTextView= (TextView) v.findViewById(R.id.text_xian_shi_shop_price);
-            viewHolder.marketPriceTextView= (TextView) v.findViewById(R.id.text_xian_shi_market_price);
+            viewHolder.imageView= (ImageView) v.findViewById(R.id.img_jing_pin_tui_jian);
+            viewHolder.nameTextView= (TextView) v.findViewById(R.id.text_jing_pin_name);
+            viewHolder.shopPriceTextView= (TextView) v.findViewById(R.id.text_jing_pin_shop_price);
             v.setTag(viewHolder);
         }else{
             viewHolder= (ViewHolder) v.getTag();
@@ -69,8 +66,6 @@ public class XianShiAdapter extends BaseAdapter{
         imageLoader.get(goods.get(position).getGoodsImg(), imageListener, 320, 320);
         viewHolder.nameTextView.setText(goods.get(position).getGoodName());
         viewHolder.shopPriceTextView.setText(goods.get(position).getShopPrice());
-        viewHolder.marketPriceTextView.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);  // 设置中划线并加清晰
-        viewHolder.marketPriceTextView.setText(FormatHelper.getMoneyFormat(goods.get(position).getMarket_price()));
         return v;
     }
 
@@ -78,8 +73,6 @@ public class XianShiAdapter extends BaseAdapter{
         private ImageView imageView;
         private TextView nameTextView;
         private TextView shopPriceTextView;
-        private TextView marketPriceTextView;
     }
-
 
 }

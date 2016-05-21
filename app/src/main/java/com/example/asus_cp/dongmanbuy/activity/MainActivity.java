@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -19,17 +18,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus_cp.dongmanbuy.R;
+import com.example.asus_cp.dongmanbuy.customview.SlidingMenu;
 import com.example.asus_cp.dongmanbuy.fragment.CategoryFragment;
 import com.example.asus_cp.dongmanbuy.fragment.FindFragment;
 import com.example.asus_cp.dongmanbuy.fragment.HomeFragment;
 import com.example.asus_cp.dongmanbuy.fragment.ShopStreetFragment;
 import com.example.asus_cp.dongmanbuy.fragment.ShoppingCarFragment;
+import com.example.asus_cp.dongmanbuy.util.MyLog;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private SearchView searchView;
+    private android.widget.SearchView searchView;
     private ImageButton loginButton;//登录按钮
     private ImageButton messageButton;//消息按钮
     private ViewPager viewPager;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int FIND=2;
     public static final int SHOP_STREET=3;
     public static final int SHOPPING_CAR=4;
+
+    private SlidingMenu slidingMenu;
+
+    private String tag="MainActivity";
 
 
     @Override
@@ -106,22 +111,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 初始化view
      */
     private void initView() {
-        searchView= (SearchView) findViewById(R.id.search_view);
-        searchView.setFocusable(false);//默认不聚焦
+        searchView= (android.widget.SearchView) findViewById(R.id.search_view);
+        searchView.setIconifiedByDefault(false);
+        searchView.setFocusable(true);//默认不聚焦
+        searchView.setFocusableInTouchMode(true);
+        searchView.clearFocus();
+        searchView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    //searchView.clearFocus();
+                }else{
+                    //searchView.requestFocus();
+                }
+            }
+        });
+        //searchView.setFocusableInTouchMode(false);
+        //searchView.setEnabled(false);
         loginButton= (ImageButton) findViewById(R.id.img_btn_login);
         messageButton= (ImageButton) findViewById(R.id.img_btn_message);
         messageButton.setOnClickListener(this);
         loginButton.setOnClickListener(this);
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) findViewById(R.id.search_view);
+        //searchView = (SearchView) findViewById(R.id.search_view);
         // 前面的包名是根节点下的包名，不要带activity
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo
                     (new ComponentName("com.example.asus_cp.dongmanbuy",
                             "com.example.asus_cp.dongmanbuy.activity.MySearchActivity")));
             searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+            searchView.clearFocus();
         }
+
+
 
         //初始化底部标签
         homell = (LinearLayout) findViewById(R.id.ll_home);
@@ -170,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onPageSelected(int position) {
                 resetLabel();
-                switch (position){
+                switch (position) {
                     case HOME:
                         homeImg.setImageResource(R.mipmap.home_selected);
                         homeText.setTextColor(getResources().getColor(R.color.bottom_lable_color));
@@ -191,6 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         shoppingCarImg.setImageResource(R.mipmap.shoppingcar_selected);
                         shoppingCarText.setTextColor(getResources().getColor(R.color.bottom_lable_color));
                         break;
+
                 }
 
             }
@@ -200,6 +224,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
+        slidingMenu= (SlidingMenu) findViewById(R.id.id_menu);
+
     }
 
     /**
@@ -227,7 +254,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.img_btn_login://登录按钮的点击事件
-                Toast.makeText(this,"点击了登录按钮",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"点击了登录按钮",Toast.LENGTH_SHORT).show();
+                slidingMenu.toggle();
                 break;
             case R.id.img_btn_message://消息按钮的点击事件
                 messageAndSao.setVisibility(View.VISIBLE);//让下拉框弹出来
@@ -273,4 +301,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        searchView.clearFocus();
+        MyLog.d(tag, "返回键");
+        super.onBackPressed();
+    }
+
+   /* @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            MyLog.d(tag, "keydown返回键");
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
 }

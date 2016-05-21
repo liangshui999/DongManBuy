@@ -19,4 +19,14 @@
     <string name="you_hui_huo_dong">优惠活动</string>
     <string name="xian_shi_miao_sha">限时秒杀</string>
     <string name="miao_sha_time">1天1时1分1秒</string>
+    <string name="jing_pin_tui_jian">精品推荐</string>
+    <string name="jing_ping_tui_jian_content">精品商品尽收眼底赶快行动吧</string>
+    <string name="more">更多</string>
+    <string name="email">2543111@qq.com</string>
+    <string name="zhou_mou_buy">ZHOUMOBUY周末</string>
+    <string name="my_page">我的主页</string>
+    <string name="my_shou_cang">我的收藏</string>
+    <string name="guan_zhu_dian_pu">关注店铺</string>
+    <string name="change_password">修改密码</string>
+    <string name="setting">设置</string>
 </resources>

@@ -6,5 +6,33 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".activity.MainActivity">
-    <include layout="@layout/content_main" />
+
+    <com.example.asus_cp.dongmanbuy.customview.SlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/id_menu"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:zhy="http://schemas.android.com/apk/res/com.example.asus_cp.dongmanbuy"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        zhy:rightPadding="100dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+            <include layout="@layout/layout_menu" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                >
+                <include layout="@layout/content_main"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.example.asus_cp.dongmanbuy.customview.SlidingMenu>
+
 </android.support.design.widget.CoordinatorLayout>
+
+
+
+

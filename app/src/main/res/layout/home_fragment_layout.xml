@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <ScrollView
+    <com.example.asus_cp.dongmanbuy.customview.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -234,21 +234,56 @@
             </LinearLayout>
 
             <!--限时秒杀的列表展示-->
-            <GridView
+            <com.example.asus_cp.dongmanbuy.customview.MyGridView
+                android:layout_marginTop="10dp"
                 android:id="@+id/grid_view_xian_shi_miao_sha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnWidth="90dp"
+                android:columnWidth="150dp"
                 android:numColumns="auto_fit"
                 android:verticalSpacing="10dp"
                 android:horizontalSpacing="10dp"
                 android:stretchMode="columnWidth"
                 android:gravity="center"
                 >
+            </com.example.asus_cp.dongmanbuy.customview.MyGridView>
 
-            </GridView>
+
+            <!--精品推荐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/jing_pin_tui_jian"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/jing_ping_tui_jian_content"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+
+            <!--精品推荐的列表展示-->
+            <com.example.asus_cp.dongmanbuy.customview.MyGridView
+                android:layout_marginTop="10dp"
+                android:id="@+id/grid_view_jing_pin_tui_jian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnWidth="150dp"
+                android:numColumns="auto_fit"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                >
+            </com.example.asus_cp.dongmanbuy.customview.MyGridView>
         </LinearLayout>
-    </ScrollView>
+    </com.example.asus_cp.dongmanbuy.customview.MyScrollView>
 
 
 </LinearLayout>
